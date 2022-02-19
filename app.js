@@ -3,8 +3,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const connection = require("./db");
-const userRoutes = require("./routes/users");
-const authRoutes = require("./routes/auth");
 
 //DB connection
 //Stays open for other mongoose scripts to access during runtime
@@ -15,8 +13,13 @@ app.use(express.json());
 app.use(cors());
 
 //Routes
-app.use("/api/users", userRoutes)
-app.listen("/api/auth", authRoutes)
+const [
+  rootRoute
+] = [
+  require('./routes/index')
+]; //Setup to have more routes added
+
+app.use('/', rootRoute);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Port ${port} has risen...`));

@@ -1,0 +1,3 @@
+/**
+ * Handles all root requests
+ */
