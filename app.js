@@ -2,11 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const connection = require("./db");
+const db = require("./db");
+const port = process.env.PORT || 4000;
 
 //DB connection
 //Stays open for other mongoose scripts to access during runtime
-connection(); //Async due to connection taking time
+db(); //Async due to connection taking time
 
 //Middleware
 app.use(express.json());
@@ -21,5 +22,5 @@ const [
 
 app.use('/', rootRoute);
 
-const port = process.env.PORT || 4000;
+//Listen
 app.listen(port, () => console.log(`Port ${port} has risen...`));

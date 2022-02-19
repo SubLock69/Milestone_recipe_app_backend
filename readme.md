@@ -10,4 +10,4 @@ This will be done through a UUID saved locally to the client and whenever they c
 | / | POST | Adds new recipes |
 | /:recipe | GET | Gets specific recipe with shown ingredients list |
 | /:recipe | PUT | Updates specific recipe (admin use only) |
-| /:uuid | PUT | Updates when a user is active (toggles based on DB value of activity) |
+| /session/:uuid | PUT | Updates when a user is active (toggles based on DB value of activity) |

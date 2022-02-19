@@ -1,3 +1,7 @@
 /**
- * Handles all root requests
+ * Handles all main endpoints
  */
+
+const router = require('express').Router();
+const db = require('../models');
+
