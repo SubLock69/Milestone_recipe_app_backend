@@ -19,7 +19,6 @@ router.post('/', async (req, res) => {
 //Retrieve general user info
 router.get('/:uuid', async (req, res) => {
   let user = await db.User.findById(req.params.uuid);
-  console.log(user);
   res.json(user);
 });
 
