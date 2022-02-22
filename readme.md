@@ -7,7 +7,10 @@ This will be done through a UUID saved locally to the client and whenever they c
 
 | Endpoint | Type | Action |
 | / | GET | Grabs top recipes |
-| / | POST | Adds new recipes |
-| /:recipe | GET | Gets specific recipe with shown ingredients list |
-| /:recipe | PUT | Updates specific recipe (admin use only) |
-| /session/:uuid | PUT | Updates when a user is active (toggles based on DB value of activity) |
+| /:uuid | GET | Grabs a users profile data for the front end to use |
+| /:uuid | POST | Creates new user profile in DB for saving of favorites |
+| /:uuid | PUT | Updates when a user is active (toggles based on DB value of activity) |
+| /:uuid/favorites | GET | Grabs favorite recipes for user |
+| /:uuid/favorites | POST | Create new favorite for specific user |
+| /:uuid/favorites/:id | GET | Gets specific recipe info for favorite recipe |
+| /:uuid/favorites/:id |  | |
