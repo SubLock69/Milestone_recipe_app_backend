@@ -2,21 +2,25 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const connection = require("./db");
-const userRoutes = require("./routes/users");
-const authRoutes = require("./routes/auth");
+const db = require("./db");
+const port = process.env.PORT || 4000;
 
 //DB connection
 //Stays open for other mongoose scripts to access during runtime
-connection(); //Async due to connection taking time
+db(); //Async due to connection taking time
 
 //Middleware
 app.use(express.json());
 app.use(cors());
 
 //Routes
-app.use("/api/users", userRoutes)
-app.listen("/api/auth", authRoutes)
+const [
+  rootRoute
+] = [
+  require('./routes/index')
+]; //Setup to have more routes added
 
-const port = process.env.PORT || 4000;
+app.use('/', rootRoute);
+
+//Listen
 app.listen(port, () => console.log(`Port ${port} has risen...`));
