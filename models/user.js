@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   fname: {type: String, required: true},
-  favorites: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}]
+  favorites: [{type: Number}] //Recipe ID from spoonacular gets added here (ref'd by front end eventually to retrieve said recipes)
 });
 
 module.exports = mongoose.model("User", userSchema);
