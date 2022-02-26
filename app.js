@@ -17,5 +17,7 @@ const [
 
 app.use('/', rootRoute);
 
+app.get('*', (req, res) => {res.status(404)});
+
 //Listen
 app.listen(port, () => console.log(`Port ${port} has risen...`));

@@ -4,11 +4,11 @@
 
 const router = require('express').Router();
 const db = require('../models');
-const axios = require('axios');
+// const axios = require('axios');
 
 //Retrieve recipes via spoonacular
 router.get('/', (req, res) => {
-  res.send('hi');
+  res.send('hi'); //Unused route
 });
 
 router.post('/', async (req, res) => {
